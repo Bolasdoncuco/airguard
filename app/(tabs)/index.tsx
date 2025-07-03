@@ -10,7 +10,7 @@ export default function Home() {
   const [devices, setDevices] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const backendURL = 'http://10.100.1.77:3000/devices';
+  const backendURL = 'http://10.100.1.3:3000/devices';
 
   useEffect(() => {
     const fetchDevices = async () => {
