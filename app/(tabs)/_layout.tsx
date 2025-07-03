@@ -1,4 +1,4 @@
-import { Tabs } from 'expo-router';
+import { Tabs } from 'expo-router/tabs';
 import React from 'react';
 import { Platform } from 'react-native';
 
@@ -30,16 +30,55 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="history"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'History',
+          tabBarIcon: ({ color }: { color: string }) => <IconSymbol size={28} name="clock.fill" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="alerts"
+        options={{
+          title: 'Alerts',
+          tabBarIcon: ({ color }: { color: string }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color }: { color: string }) => <IconSymbol size={28} name="gearshape.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+    name="login"
+    options={{ href: null }} 
+  /> 
+
+        
+      <Tabs.Screen
+        name="chatbot"
+        options={{
+          title: 'Ayuda',
+          tabBarIcon: ({ color }: { color: string }) => <IconSymbol size={28} name="questionmark.circle.fill" color={color} />,
+        }}
+        />
+      <Tabs.Screen
+        name="device-setup"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+      name="device/abc"
+      options={{
+        href: null, // ¡Esto oculta la pestaña!
+      }}
+    />
     </Tabs>
   );
 }
