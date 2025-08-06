@@ -1,9 +1,11 @@
+import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  Button, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, 
-  Text, TextInput, TouchableOpacity, View, Image, ActivityIndicator
+  ActivityIndicator,
+  Image,
+  KeyboardAvoidingView, Platform, ScrollView, StyleSheet,
+  Text, TextInput, TouchableOpacity, View
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 export default function ChatBot() {
   const [mensaje, setMensaje] = useState('');
@@ -34,7 +36,7 @@ export default function ChatBot() {
 
   const obtenerHistorial = async () => {
     try {
-      const res = await fetch(`http://10.100.1.3:4000/api/chats/${usuarioId}`);
+      const res = await fetch(`http://10.100.1.76:4000/api/chats/${usuarioId}`);
       const data = await res.json();
       setChats(data);
     } catch (error) {
@@ -57,7 +59,7 @@ export default function ChatBot() {
 
   const crearChatNuevo = async () => {
     try {
-      const res = await fetch('http://10.100.1.3:4000/api/chats', {
+      const res = await fetch('http://10.100.1.76:4000/api/chats', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ usuarioId }),
@@ -75,7 +77,7 @@ export default function ChatBot() {
 
   const borrarHistorial = async () => {
     try {
-      await fetch(`http://10.100.1.3:4000/api/chats/usuario/${usuarioId}`, {
+      await fetch(`http://10.100.1.76:4000/api/chats/usuario/${usuarioId}`, {
         method: 'DELETE',
       });
       setTimeout(() => {
@@ -102,7 +104,7 @@ export default function ChatBot() {
     setCargando(true);
 
     try {
-      const res = await fetch('http://10.100.1.3:4000/api/chat', {
+      const res = await fetch('http://192.168.0.119:4000/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mensaje, chatId, usuarioId }),
@@ -217,8 +219,8 @@ export default function ChatBot() {
                 source={{ uri: 'https://via.placeholder.com/100' }} 
                 style={styles.welcomeImage} 
               />
-              <Text style={styles.welcomeTitle}>¡Hola! Soy AirGuard Assistant</Text>
-              <Text style={styles.welcomeText}>¿En qué puedo ayudarte hoy?</Text>
+              <Text style={styles.welcomeTitle}>Hola! Soy AirGuard Assistant</Text>
+              <Text style={styles.welcomeText}>¿Como puedo ayudarte?</Text>
             </View>
           )}
 

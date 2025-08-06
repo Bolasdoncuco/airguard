@@ -1,13 +1,30 @@
 const mongoose = require('mongoose');
 
 const deviceSchema = new mongoose.Schema({
-  name: String,
-  location: String,
-  lastMeasurement: {
-    temperature: Number,
-    humidity: Number,
-    airQuality: Number,
-    updatedAt: Date,
+  usuario_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  nombre: {
+    type: String,
+    required: true,
+  },
+  modelo: {
+    type: String,
+    required: true,
+  },
+  ubicacion: {
+    ciudad: String,
+    pais: String,
+  },
+  estado: {
+    type: String,
+    default: 'activo',
+  },
+  fecha_registro: {
+    type: Date,
+    default: Date.now,
   },
 });
 

@@ -74,7 +74,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-      name="device/abc"
+      name="device/[id]"
       options={{
         href: null, // ¡Esto oculta la pestaña!
       }}

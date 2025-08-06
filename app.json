@@ -1,42 +1,54 @@
 {
   "expo": {
-    "name": "airguard",
+    "name": "AirGuard",
     "slug": "airguard",
     "version": "1.0.0",
+    "scheme": "airguard",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "airguard",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "automatic",  
     "newArchEnabled": true,
+
+    "android": {
+      "package": "com.anonymous.airguard",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",  
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "NOTIFICATIONS"
+      ],
+      "edgeToEdgeEnabled": true
+    },
+
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+
+    "plugins": [
+      "expo-notifications",
+      "expo-router",
+      [
+        "expo-splash-screen"
+      ],
+      "react-native-ble-plx",
+      "react-native-wifi-reborn",
+      "expo-web-browser"
+    ],
+
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d1c157ff-27cc-4a06-afff-eb1c069f1cdc"
+      }
     },
+
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+
+    "owner": "bolasdoncuco"
   }
 }

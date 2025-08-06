@@ -7,13 +7,12 @@
         "./*"
       ]
     },
-    "types": ["expo-router"]
+    "types": [
+      "expo-router"
+    ]
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "**/*.tsx"
   ]
 }
-
